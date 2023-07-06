@@ -7,7 +7,7 @@ export class Contract {
     private abiCode: string,
   ) {}
 
-  getCA(): Readonly<string> {
+  getContractAddress(): Readonly<string> {
     return this.contractAddress;
   }
 

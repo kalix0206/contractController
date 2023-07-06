@@ -1,5 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
+import { getBlockHeight } from './rweb3/test';
 
 @Controller()
 export class AppController {
@@ -8,5 +9,9 @@ export class AppController {
   @Get()
   getHello(): string {
     return this.appService.getHello();
+  }
+  @Get('/block')
+  getBlockHeight() {
+    return getBlockHeight();
   }
 }

@@ -5,9 +5,12 @@ import { AppService } from './app.service';
 import configuration from './config/configuration';
 import { ContractsModule } from './contract/contracts.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { WalletsModule } from './wallet/wallets.module';
+
 @Module({
   imports: [
     ContractsModule,
+    WalletsModule,
     ConfigModule.forRoot({
       load: [configuration],
       isGlobal: true,
