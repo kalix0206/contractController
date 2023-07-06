@@ -1,5 +1,8 @@
 export interface WalletInfo {
-  walletAddress: string;
+  address: string;
+  nickName: string;
+  secret: string;
   name: string;
-  privateKey: string;
+  prvKey: string;
+  pubKey: string;
 }

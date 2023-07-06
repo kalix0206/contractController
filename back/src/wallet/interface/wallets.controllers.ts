@@ -1,6 +1,7 @@
+import { GetWalletInfoQuery } from './../application/query/get-wallet-info.query';
 import { CreateWalletCommand } from './../application/command/create-wallet.command';
 import { createWalletDto } from './dto/create-wallet.dto';
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Get, Param } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { WalletInfo } from './WalletInfo';
 
@@ -15,6 +16,12 @@ export class WalletsController {
     return this.commandBus.execute(command);
   }
 
-  //   @Post('importWallet')
-  //   async importWallet() {}
+  @Get('/:address?')
+  async getWalletInfo(
+    @Param('address') address?: string,
+  ): Promise<WalletInfo | WalletInfo[]> {
+    const getWalletInfoQuery = new GetWalletInfoQuery(address);
+
+    return this.queryBus.execute(getWalletInfoQuery);
+  }
 }

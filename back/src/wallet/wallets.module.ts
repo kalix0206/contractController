@@ -1,3 +1,5 @@
+import { GetWalletInfoQueryHandler } from './application/query/get-walllet-info.handler';
+import { GetWalletInfoQuery } from './application/query/get-wallet-info.query';
 import { WalletFactoy } from './domain/wallet.factory';
 import { WalletsController } from './interface/wallets.controllers';
 import { CreateWalletHandler } from './application/command/create-wallet.handler';
@@ -8,7 +10,7 @@ import { WalletEntity } from './infra/db/entity/wallet.entity';
 import { WalletRepository } from './infra/db/repository/WalletRepository';
 
 const commandHandlers = [CreateWalletHandler];
-const queryHandlers = [];
+const queryHandlers = [GetWalletInfoQueryHandler];
 const eventHandlers = [];
 const factories = [WalletFactoy];
 const repositories = [
